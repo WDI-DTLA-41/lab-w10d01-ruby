@@ -4,6 +4,6 @@ require 'json'
 url = "https://swapi.co/api/people/1"
 response = RestClient.get(url)
 
-data = JSON.parse(response)
+data = JSON.parse(response.body)
 
-puts data.keys
+puts data["results"].map { |character| character["name"] }
