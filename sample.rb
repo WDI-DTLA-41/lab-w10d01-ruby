@@ -1,5 +1,9 @@
 require 'rest-client'
+require 'json'
 
-response = RestClient.get('http://www.example.com')
+url = "https://swapi.co/api/people/1"
+response = RestClient.get(url)
 
-puts response
+data = JSON.parse(response)
+
+puts data.keys
